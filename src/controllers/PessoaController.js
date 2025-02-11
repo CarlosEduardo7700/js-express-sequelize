@@ -9,6 +9,18 @@ class PessoaController extends Controllers {
     super(pessoaService);
   }
 
+  async getMatriculasByEstudantes(req, res) {
+
+    const { estudanteId } = req.params;
+
+    try {
+      const listaMatriculas = await pessoaService.getMatriculasByEstudantes(Number(estudanteId));
+      return res.status(200).json(listaMatriculas);
+    } catch (error) {
+      // erro
+    }
+  }
+
 }
 
 module.exports = PessoaController;
