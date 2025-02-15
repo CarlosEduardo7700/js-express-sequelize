@@ -18,8 +18,8 @@ class Controllers {
     try {
       const umRegistro = await this.service.getById(Number(id));
       return res.status(200).json(umRegistro);
-    } catch (erro) {
-      // erro
+    } catch (error) {
+      return res.status(500).json({ erro: error.message});
     }
   }
 
@@ -28,8 +28,8 @@ class Controllers {
     try {
       const novoRegistroCriado = await this.service.create(dadosParaCriacao);
       return res.status(200).json(novoRegistroCriado);
-    } catch (erro) {
-      // erro
+    } catch (error) {
+      return res.status(500).json({ erro: error.message});
     }
   }
 
@@ -48,7 +48,7 @@ class Controllers {
       }
 
     } catch (error) {
-      // erro 
+      return res.status(500).json({ erro: error.message}); 
     }
   }
 
@@ -58,7 +58,7 @@ class Controllers {
       await this.service.delete(Number(id));
       return res.status(200).json({ mensagem: `id ${id} deletado` });
     } catch (error) {
-      return res.status(500).json(error.message);
+      return res.status(500).json({ erro: error.message});
     }
   }
 
