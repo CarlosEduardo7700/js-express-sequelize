@@ -1,4 +1,4 @@
-const datasource = require('../models');
+const datasource = require('../database/models');
 
 class Services {
 
