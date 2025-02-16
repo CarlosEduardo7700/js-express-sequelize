@@ -11,6 +11,10 @@ class Services {
     return datasource[this.model].findAll();
   }
 
+  async getByScope(escopo) {
+    return datasource[this.model].scope(escopo).findAll();
+  }
+
   async getById(id) {
     return datasource[this.model].findByPk(id);
   }

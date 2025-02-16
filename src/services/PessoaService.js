@@ -12,6 +12,11 @@ class PessoaService extends Services {
     return listaMatriculas;
   }
 
+  async getByScopeTodosOsRegistros() {
+    const lista = await super.getByScope('todosOsRegistros');
+    return lista;
+  }
+
 }
 
 module.exports = PessoaService;
