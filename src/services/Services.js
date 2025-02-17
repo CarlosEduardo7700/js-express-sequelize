@@ -27,14 +27,8 @@ class Services {
     });
   }
 
-  async countByEstudantex(where) {
-    return datasource[this.model].findAndCountAll({
-      where: {
-        ...where
-      },
-      limit: 2,
-      order: [['id', 'DESC']]
-    });
+  async countByEstudantes(options) {
+    return datasource[this.model].findAndCountAll({ ...options });
   }
 
   async create(dadosDoRegistro) {
