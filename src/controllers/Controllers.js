@@ -1,3 +1,5 @@
+const converteIds = require('../helpers/conversorDeStringHelper.js');
+
 class Controllers {
 
   constructor(service) {
@@ -25,8 +27,9 @@ class Controllers {
 
   async getByAttributes(req, res) {
     const { ...params } = req.params;
+    const where = converteIds(params);
     try {
-      const umRegistro = await this.service.getByAttributes(params);
+      const umRegistro = await this.service.getByAttributes(where);
       return res.status(200).json(umRegistro);
     } catch (error) {
       return res.status(500).json({ erro: error.message});
