@@ -6,9 +6,15 @@ class PessoaService extends Services {
     super('Pessoa');
   }
 
-  async getMatriculasByEstudantes(id) {
+  async getMatriculasAtivas(id) {
     const estudante = await super.getById(id);
     const listaMatriculas = await estudante.getAulasMatriculadas();
+    return listaMatriculas;
+  }
+
+  async getTodasMatriculas(id) {
+    const estudante = await super.getById(id);
+    const listaMatriculas = await estudante.getTodasMatriculas();
     return listaMatriculas;
   }
 
