@@ -27,7 +27,7 @@ class Services {
     });
   }
 
-  async countByEstudantes(options) {
+  async count(options) {
     return datasource[this.model].findAndCountAll({ ...options });
   }
 

@@ -13,7 +13,7 @@ class MatriculaController extends Controllers {
   async countByEstudantes(req, res) {
     const { estudante_id } = req.params;
     try {
-      const lista = await matriculaService.countByEstudantes(
+      const lista = await matriculaService.count(
         {
           where: {
             estudante_id: Number(estudante_id),
