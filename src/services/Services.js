@@ -31,10 +31,10 @@ class Services {
     return datasource[this.model].create(dadosDoRegistro);
   }
 
-  async update(dadosAtualizados, id) {
+  async update(dadosAtualizados, where) {
     const listaDeRegistrosAtualizados = datasource[this.model].update(dadosAtualizados, {
       where: {
-        id: id
+        ...where
       }
     });
 
