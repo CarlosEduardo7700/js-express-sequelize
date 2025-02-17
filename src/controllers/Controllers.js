@@ -23,6 +23,16 @@ class Controllers {
     }
   }
 
+  async getByAttributes(req, res) {
+    const { ...params } = req.params;
+    try {
+      const umRegistro = await this.service.getByAttributes(params);
+      return res.status(200).json(umRegistro);
+    } catch (error) {
+      return res.status(500).json({ erro: error.message});
+    }
+  }
+
   async create(req, res) {
     const dadosParaCriacao = req.body;
     try {

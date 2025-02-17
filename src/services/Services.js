@@ -19,6 +19,14 @@ class Services {
     return datasource[this.model].findByPk(id);
   }
 
+  async getByAttributes(where) {
+    return datasource[this.model].findOne({
+      where: {
+        ...where
+      }
+    });
+  }
+
   async create(dadosDoRegistro) {
     return datasource[this.model].create(dadosDoRegistro);
   }

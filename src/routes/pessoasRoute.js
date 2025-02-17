@@ -15,6 +15,7 @@ router.put('/pessoas/:id', (req, res) => pessoaController.update(req, res));
 router.delete('/pessoas/:id', (req, res) => pessoaController.delete(req, res));
 router.get('/pessoas/:estudanteId/matriculas', (req, res) => pessoaController.getMatriculasAtivas(req, res));
 router.get('/pessoas/:estudanteId/matriculas/todas', (req, res) => pessoaController.getTodasMatriculas(req, res));
+router.post('/pessoas/:estudanteId/matriculas/:matriculaId', (req, res) => matriculaController.getByAttributes(req, res));
 router.post('/pessoas/:estudanteId/matriculas', (req, res) => matriculaController.create(req, res));
 
 module.exports = router;
