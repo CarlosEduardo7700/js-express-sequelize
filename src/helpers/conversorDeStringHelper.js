@@ -4,4 +4,5 @@ module.exports = (objetoParams) => {
       objetoParams[propriedade] = Number(objetoParams[propriedade]);
     }
   }
+  return objetoParams;
 };
