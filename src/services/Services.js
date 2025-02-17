@@ -7,8 +7,8 @@ class Services {
 
   }
 
-  async getAll() {
-    return datasource[this.model].findAll();
+  async getAll(where = {}) {
+    return datasource[this.model].findAll({ where: { ...where } });
   }
 
   async getByScope(escopo) {
