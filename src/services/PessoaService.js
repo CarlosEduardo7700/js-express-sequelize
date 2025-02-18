@@ -4,6 +4,7 @@ class PessoaService extends Services {
 
   constructor() {
     super('Pessoa');
+    this.matriculaService = new Services('Matricula');
   }
 
   async getMatriculasAtivas(id) {
@@ -21,6 +22,11 @@ class PessoaService extends Services {
   async getByScopeTodosOsRegistros() {
     const lista = await super.getByScope('todosOsRegistros');
     return lista;
+  }
+
+  async cancelaPessoaEMatriculas(estudanteId) {
+    await super.update({ ativo: false }, { id: estudanteId });
+    await this.matriculaService.update({ status: 'cancelado' }, { estudante_id: estudanteId });
   }
 
 }
